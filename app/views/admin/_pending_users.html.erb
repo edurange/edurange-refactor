@@ -1,0 +1,25 @@
+<h3>Approve Users</h3>
+<table>
+  <% users.each do |user| %>
+    <tr id="user-<%= user.id %>">
+      <td>
+        <%= user.first_name %>
+      </td>
+      <td>
+        <%= user.last_name %>
+      </td>
+      <td>
+        <%= user.email %>
+      </td>
+      <td>
+        <%= user.approved %>
+      </td>
+      <td>
+        <%= user.role %>
+      </td>
+      <td>
+        <%= link_to 'Approve user', admin_approve_user_path(id: user.id), remote: true, method: :post, :data => { :confirm => "Are you sure you want to approve #{user.name} as a #{user.role}?" } %>
+      </td>
+    </tr>
+  <% end %>
+</table>
