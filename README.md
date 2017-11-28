@@ -30,3 +30,20 @@ In the edurange-server directory, yank and update all the gem dependencies:
 bundle update
 bundle install
 ```
+
+
+
+##  III. Database and User setup
+
+Edit the file "config/secrets.yml". Under 'development:' edit the "admin\_name", "admin\_email" and "admin\_password" fields. These are the default user settings. Avoid using any spaces in those fields.
+
+Now run ```rake db:setup```. This will create the database and admin account.
+
+##  IV. Run the server
+  
+Now bootup the developement server:
+```
+rails server
+```
+If you get a ruby version error, you might need to type 'rvm 2.3.1 [or current ruby version in Gemfile]'.
+Point your web browser to localhost:3000
