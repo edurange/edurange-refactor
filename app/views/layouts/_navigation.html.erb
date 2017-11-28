@@ -2,7 +2,7 @@
   <a class="navbar-brand">
     EDURange
   </a>
-  <ul class="nav nav-tabs">
+  <ul class="nav nav-pills">
     <% if current_user %>
       <li>
         <%= link_to 'Home', root_path %>
@@ -10,9 +10,42 @@
       <li>
         <%= link_to 'Profile', edit_user_registration_path %>
       </li>
+      <li id="view-menu" class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#views">
+          View <b class="caret"></b>
+        </a>
+        <% if current_user.admin? %>
+          <ul class="dropdown-menu">
+            <li>
+              <%= link_to 'Admin', '/admin' %>
+            </li>
+            <li>
+              <%= link_to 'Instructor', '/instructor' %>
+            </li>
+            <li>
+              <%= link_to 'Student', '/student' %>
+            </li>
+          </ul>
+        <% end %>
+      </li>
       <li role="presentation">
         <%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %>
       </li>
     <% end %>
   </ul>
 </nav>
+
+
+<% if current_user.admin? %>
+  <ul class="nav nav-pills"> 
+    <li>
+      <%= link_to 'Admin', '/admin' %>
+    </li>
+    <li>
+      <%= link_to 'Instructor', '/instructor' %>
+    </li>
+    <li>
+      <%= link_to 'Student', '/student' %>
+    </li>
+  </ul>
+<% end %>
