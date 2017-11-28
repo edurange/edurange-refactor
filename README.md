@@ -47,3 +47,9 @@ rails server
 ```
 If you get a ruby version error, you might need to type 'rvm 2.3.1 [or current ruby version in Gemfile]'.
 Point your web browser to localhost:3000
+
+
+After you pull changes from the github repository, if the database was changed you'll need to rake the database:
+```
+rake db:migrate
+```
